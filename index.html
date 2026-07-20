@@ -19,6 +19,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
 @keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
 header{position:fixed;top:0;width:100%;z-index:200;background:rgba(250,247,242,0.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(26,39,68,0.08);transition:all 0.3s;}
 header.scrolled{background:rgba(250,247,242,0.98);box-shadow:0 4px 30px rgba(26,39,68,0.1);}
 .nav-inner{max-width:1200px;margin:auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;height:96px;}
@@ -40,16 +42,24 @@ nav a:hover{color:var(--teal);}
 .hero-slide.active img{transform:scale(1);}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(250,247,242,0.97) 40%,rgba(15,122,107,0.06) 100%);}
 .hero-inner{max-width:1200px;margin:auto;padding:80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1;}
-.hero-label{display:inline-flex;align-items:center;gap:8px;background:rgba(232,160,32,0.12);border:1px solid rgba(232,160,32,0.3);color:#8a5e00;padding:8px 18px;border-radius:50px;font-size:13px;font-weight:600;}
+.hero-label{display:inline-flex;align-items:center;gap:8px;background:rgba(232,160,32,0.12);border:1px solid rgba(232,160,32,0.3);color:#8a5e00;padding:8px 18px;border-radius:50px;font-size:13px;font-weight:600;animation:fadeUp 0.9s ease;}
 .hero-label span{width:6px;height:6px;background:var(--gold);border-radius:50%;display:inline-block;animation:pulse 2s ease infinite;}
-h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.5vw,4.2rem);font-weight:700;line-height:1.1;color:var(--navy);margin-bottom:24px;}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.5vw,4.2rem);font-weight:700;line-height:1.1;color:var(--navy);margin-bottom:24px;animation:fadeUp 0.9s 0.2s ease both;}
 h1 em{color:var(--teal);font-style:normal;}
-.hero-desc{font-size:1.15rem;color:var(--text-mid);max-width:560px;margin-bottom:40px;line-height:1.8;}
-.hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
-.btn-primary{background:var(--teal);color:#222;padding:15px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.25s;display:inline-flex;align-items:center;}
+.hero-desc{font-size:1.15rem;color:var(--text-mid);max-width:560px;margin-bottom:40px;line-height:1.8;animation:fadeUp 0.9s 0.4s ease both;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp 0.9s 0.6s ease both;}
+.btn-primary{background:var(--teal);color:#222;padding:15px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
 .btn-primary:hover{background:var(--teal-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,122,107,0.35);}
 .btn-outline{border:2px solid var(--navy);color:var(--navy);padding:14px 30px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.25s;}
 .btn-outline:hover{background:var(--navy);color:#222;transform:translateY(-2px);}
+.hero-visual{animation:slideIn 1s 0.5s ease both;}
+.hero-img-carousel{border-radius:20px;overflow:hidden;aspect-ratio:4/5;position:relative;}
+.carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;}
+.carousel-slide.active{opacity:1;position:relative;}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;}
+.carousel-dots{display:flex;gap:8px;justify-content:center;margin-top:16px;}
+.cdot{width:8px;height:8px;border-radius:50%;background:rgba(26,39,68,0.2);cursor:pointer;transition:all 0.3s;}
+.cdot.active{background:var(--teal);width:24px;border-radius:4px;}
 .marquee-bar{background:var(--teal);padding:14px 0;overflow:hidden;}
 .marquee-track{display:flex;gap:0;white-space:nowrap;animation:marqueeScroll 20s linear infinite;}
 .marquee-item{display:inline-flex;align-items:center;gap:20px;padding:0 32px;font-size:14px;font-weight:600;color:#222;letter-spacing:0.06em;text-transform:uppercase;}
@@ -59,26 +69,72 @@ h1 em{color:var(--teal);font-style:normal;}
 .stat-label{font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;letter-spacing:0.04em;}
 .section{padding:100px 0;}
 .section-inner{max-width:1200px;margin:auto;padding:0 40px;}
+.reveal{opacity:0;transform:translateY(50px);transition:opacity 0.8s cubic-bezier(.16,1,.3,1),transform 0.8s cubic-bezier(.16,1,.3,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
 h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:20px;}
+.section-label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;}
+.lead{font-size:1.15rem;color:var(--text-mid);max-width:680px;line-height:1.8;}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px;}
-.about-img{border-radius:16px;overflow:hidden;width:100%;height:400px;object-fit:cover;}
+.about-img{border-radius:16px;overflow:hidden;width:100%;height:400px;object-fit:cover;transition:transform 0.6s ease;}
+.about-img:hover{transform:scale(1.04);}
 .about-quote{border-left:3px solid var(--gold);padding-left:24px;margin:32px 0;font-size:1.05rem;color:var(--text-mid);font-style:italic;line-height:1.8;}
-.founders{display:flex;gap:24px;margin-top:40px;}
-.founder{background:white;padding:24px;border-radius:12px;border:1px solid rgba(26,39,68,0.1);}
+.founders{display:flex;gap:24px;margin-top:40px;flex-wrap:wrap;}
+.founder{background:white;padding:24px;border-radius:12px;border:1px solid rgba(26,39,68,0.1);transition:all 0.3s;}
+.founder:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(26,39,68,0.1);}
 .founder-name{font-weight:700;color:var(--navy);font-size:1rem;}
 .founder-role{font-size:0.9rem;color:var(--text-muted);margin-top:4px;}
 .focus-section{background:var(--navy);padding:100px 0;}
+.focus-section .section-label{color:var(--gold);}
 .focus-section h2{color:#222;}
 .focus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px;}
 .focus-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:36px;transition:all 0.35s;cursor:pointer;}
 .focus-card:hover{background:rgba(255,255,255,0.09);border-color:rgba(232,160,32,0.5);transform:translateY(-4px);}
+.focus-image{border-radius:12px;overflow:hidden;margin-bottom:20px;aspect-ratio:16/10;height:200px;}
+.focus-image img{width:100%;height:100%;object-fit:cover;}
 .focus-card h3{font-size:1.2rem;font-weight:600;color:#222;margin-bottom:12px;}
 .focus-card p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;}
+.focus-tag{display:inline-block;background:rgba(232,160,32,0.15);color:var(--gold-light);font-size:11px;font-weight:600;letter-spacing:0.06em;padding:4px 12px;border-radius:50px;margin-bottom:16px;}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:52px;}
+.vm-card{border-radius:20px;padding:48px;position:relative;overflow:hidden;transition:transform 0.35s;}
+.vm-card:hover{transform:translateY(-4px);}
+.vm-card-vision{background:var(--teal);color:#222;}
+.vm-card-mission{background:var(--cream-dark);border:1px solid rgba(26,39,68,0.1);}
+.vm-card h3{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;margin-bottom:16px;}
+.vm-card-vision h3{color:#222;}
+.vm-card-mission h3{color:var(--navy);}
+.vm-card-vision p{color:rgba(255,255,255,0.85);line-height:1.8;}
+.vm-card-mission p{color:var(--text-mid);line-height:1.8;}
 .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:52px;}
-.service-card{background:white;border-radius:14px;padding:28px 24px;border:1px solid rgba(26,39,68,0.07);transition:all 0.3s;}
+.service-card{background:white;border-radius:14px;padding:28px 24px;border:1px solid rgba(26,39,68,0.07);transition:all 0.3s;position:relative;overflow:hidden;}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal);transform:scaleX(0);transition:transform 0.35s;transform-origin:left;}
+.service-card:hover::before{transform:scaleX(1);}
 .service-card:hover{box-shadow:0 16px 48px rgba(15,122,107,0.14);transform:translateY(-4px);}
+.service-num{font-size:12px;font-weight:700;color:rgba(15,122,107,0.35);letter-spacing:0.1em;margin-bottom:12px;}
+.service-card h3{font-size:1rem;font-weight:600;color:var(--navy);line-height:1.4;}
+.gallery-section{padding:80px 0;background:var(--cream);overflow:hidden;}
+.gallery-track{display:flex;gap:20px;transition:transform 0.6s cubic-bezier(.16,1,.3,1);margin-top:40px;}
+.gallery-img{border-radius:16px;overflow:hidden;flex-shrink:0;width:380px;height:280px;position:relative;transition:transform 0.5s ease;}
+.gallery-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+.gallery-img:hover img{transform:scale(1.06);}
+.gallery-img-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(26,39,68,0.85));padding:20px 20px 16px;color:#222;font-size:13px;font-weight:500;transform:translateY(20px);transition:transform 0.3s;}
+.gallery-img:hover .gallery-img-caption{transform:translateY(0);}
+.gallery-nav{display:flex;justify-content:center;gap:16px;margin-top:32px;align-items:center;}
+.gnav-btn{width:44px;height:44px;border-radius:50%;border:2px solid var(--navy);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--navy);transition:all 0.3s;}
+.gnav-btn:hover{background:var(--navy);color:#222;}
+.gnav-dots{display:flex;gap:8px;}
+.gnav-dot{width:8px;height:8px;border-radius:50%;background:rgba(26,39,68,0.2);cursor:pointer;transition:all 0.3s;}
+.gnav-dot.active{background:var(--teal);width:24px;border-radius:4px;}
+.why-section{text-align:center;padding:100px 40px;}
+.why-inner{max-width:860px;margin:auto;}
+.why-quote{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;color:var(--navy);line-height:1.3;margin:40px 0;position:relative;padding:0 40px;}
+.why-quote::before,.why-quote::after{font-size:6rem;color:rgba(15,122,107,0.12);position:absolute;font-family:'Playfair Display',serif;line-height:1;}
+.why-quote::before{content:'"';top:-16px;left:0;}
+.why-quote::after{content:'"';bottom:-56px;right:0;}
+.why-img{width:100%;border-radius:16px;aspect-ratio:16/7;object-fit:cover;transition:transform 0.6s ease;margin-top:40px;}
+.why-img:hover{transform:scale(1.01);}
 .contact-section{background:var(--navy);padding:100px 0;text-align:center;}
 .contact-section h2{color:#222;}
+.contact-section p{color:rgba(255,255,255,0.7);font-size:1.1rem;max-width:560px;margin:16px auto 48px;}
 .contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
 .contact-link{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.25s;}
 .contact-link-email{background:var(--gold);color:#1a1a1a;}
@@ -93,9 +149,11 @@ footer p{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:0.04em;}
   .hero-inner{grid-template-columns:1fr;}
   .about-grid{grid-template-columns:1fr;}
   .focus-grid{grid-template-columns:1fr;}
+  .vm-grid{grid-template-columns:1fr;}
   .services-grid{grid-template-columns:repeat(2,1fr);}
   .stats-inner{grid-template-columns:repeat(2,1fr);}
   nav a:not(.nav-cta){display:none;}
+  .gallery-img{width:300px;height:220px;}
 }
 @media(max-width:600px){
   .services-grid{grid-template-columns:1fr;}
@@ -140,11 +198,21 @@ footer p{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:0.04em;}
         <a href="#contact" class="btn-outline">Contact Us</a>
       </div>
     </div>
+    <div class="hero-visual">
+      <div class="hero-img-carousel" id="heroCarousel">
+        <div class="carousel-slide active"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80" alt="Black African community solidarity"></div>
+        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80" alt="African community support"></div>
+        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=800&q=80" alt="African healthcare professional"></div>
+        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=800&q=80" alt="Muslim woman professional"></div>
+        <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80" alt="Diverse inclusive community"></div>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
   </div>
 </section>
 
 <div class="marquee-bar">
-  <div class="marquee-track" id="marqueeTrack">
+  <div class="marquee-track">
     <span class="marquee-item">✦ Mobility Awareness</span>
     <span class="marquee-item">✦ Assistive Technology</span>
     <span class="marquee-item">✦ Disability Inclusion</span>
@@ -153,8 +221,6 @@ footer p{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:0.04em;}
     <span class="marquee-item">✦ Mobility Awareness</span>
     <span class="marquee-item">✦ Assistive Technology</span>
     <span class="marquee-item">✦ Disability Inclusion</span>
-    <span class="marquee-item">✦ Caregiver Education</span>
-    <span class="marquee-item">✦ Accessibility Consulting</span>
   </div>
 </div>
 
@@ -182,40 +248,181 @@ footer p{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:0.04em;}
 <!-- ABOUT SECTION -->
 <section class="section" id="about">
   <div class="section-inner">
-    <h2>Who We Are</h2>
+    <div class="reveal"><div class="section-label">Who We Are</div></div>
+    <h2 class="reveal">Creating Pathways to Dignity & Independence</h2>
     <div class="about-grid">
-      <div>
-        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="InuAbility Team" class="about-img">
-      </div>
-      <div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy);margin-bottom:16px;">Creating Pathways to Dignity & Independence</h3>
-        <p style="margin-bottom:16px;color:var(--text-mid);line-height:1.8;">Founded by Nancy and Phill, InuAbility was born from a shared commitment to disability inclusion, accessibility, rehabilitation awareness, and independent living support.</p>
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="InuAbility Team" class="about-img reveal">
+      <div class="reveal">
+        <p class="lead">Founded by Nancy and Phill, InuAbility was born from a shared commitment to disability inclusion, accessibility, rehabilitation awareness, and independent living support.</p>
         <div class="about-quote">Drawing on extensive experience in disability support, aged care, community services and transitional care — InuAbility bridges the gap between individuals, families, employers and communities, creating pathways to true inclusion across Africa.</div>
         <h4 style="font-weight:700;color:var(--navy);margin-top:32px;margin-bottom:16px;">Our Founders</h4>
         <div class="founders">
-          <div class="founder">\n            <div class="founder-name">Nancy Rono</div>\n            <div class="founder-role">Founder & Director</div>\n            <p style=\"font-size:0.9rem;margin-top:8px;color:var(--text-mid);\">Leading disability inclusion strategy and community engagement.</p>\n          </div>\n          <div class="founder">\n            <div class="founder-name">Phill (PA)</div>\n            <div class="founder-role">Co-Founder & Business Development Lead</div>\n            <p style=\"font-size:0.9rem;margin-top:8px;color:var(--text-mid);\">Driving partnerships and organizational growth.</p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>
-
-<section class="section focus-section" id="services">
-  <div class="section-inner">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card"><h3>01. Disability Awareness Education</h3></div>
-      <div class="service-card"><h3>02. Mobility & Accessibility Support</h3></div>
-      <div class="service-card"><h3>03. Assistive Technology Awareness</h3></div>
-      <div class="service-card"><h3>04. Home Accessibility Modifications</h3></div>
-      <div class="service-card"><h3>05. Workplace Inclusion Consulting</h3></div>
-      <div class="service-card"><h3>06. Caregiver Support & Education</h3></div>
-      <div class="service-card"><h3>07. Assistive Products & Solutions</h3></div>
-      <div class="service-card"><h3>08. Strategic Partnerships</h3></div>
+          <div class="founder">
+            <div class="founder-name">Nancy Rono</div>
+            <div class="founder-role">Founder & Director</div>
+            <p style="font-size:0.9rem;margin-top:8px;color:var(--text-mid);">Leading disability inclusion strategy and community engagement.</p>
+          </div>
+          <div class="founder">
+            <div class="founder-name">Phill (PA)</div>
+            <div class="founder-role">Co-Founder & BD Lead</div>
+            <p style="font-size:0.9rem;margin-top:8px;color:var(--text-mid);">Driving partnerships and organizational growth.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- FOCUS AREAS -->
+<section class="focus-section" id="focus">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-label">Our Focus</div></div>
+    <h2 class="reveal delay-1">Areas Where We Create Impact</h2>
+    <div class="focus-grid">
+      <div class="focus-card reveal">
+        <span class="focus-tag">Mobility</span>
+        <div class="focus-image">
+          <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=600&q=80" alt="Person in wheelchair enjoying outdoor mobility">
+        </div>
+        <h3>Mobility & Accessibility Awareness</h3>
+        <p>Promoting understanding around mobility support, accessibility and inclusion in everyday environments and communities. We advocate for barrier-free spaces and inclusive design practices.</p>
+      </div>
+      <div class="focus-card reveal delay-1">
+        <span class="focus-tag">Technology</span>
+        <div class="focus-image">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Assistive companionship and technology for independence">
+        </div>
+        <h3>Assistive Technology Support</h3>
+        <p>Supporting conversations around mobility aids, adaptive equipment, smart home solutions and accessibility pathways for greater independence and quality of life.</p>
+      </div>
+      <div class="focus-card reveal delay-2">
+        <span class="focus-tag">Education</span>
+        <div class="focus-image">
+          <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=600&q=80" alt="Community and caregiver training session">
+        </div>
+        <h3>Community & Caregiver Education</h3>
+        <p>Encouraging dignity, awareness and independent living support through comprehensive training programs and meaningful community engagement across Africa.</p>
+      </div>
+      <div class="focus-card reveal delay-3">
+        <span class="focus-tag">Advocacy</span>
+        <div class="focus-image">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" alt="Inclusive community participation and sports">
+        </div>
+        <h3>Disability Inclusion Advocacy</h3>
+        <p>Promoting full participation, accessibility and genuinely inclusive communities through policy engagement, awareness campaigns and rights-based advocacy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION MISSION -->
+<section class="section">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-label">Our Purpose</div></div>
+    <h2 class="reveal">Vision & Mission</h2>
+    <div class="vm-grid">
+      <div class="vm-card vm-card-vision reveal">
+        <h3>Our Vision</h3>
+        <p>To create inclusive communities where every person, regardless of ability, has access to the support, opportunities, environments and resources needed to live independently and thrive.</p>
+      </div>
+      <div class="vm-card vm-card-mission reveal delay-1">
+        <h3>Our Mission</h3>
+        <p>To promote disability inclusion, accessibility, mobility, assistive technology awareness and caregiver support through education, advocacy and practical solutions across Africa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services" style="background:var(--cream-dark);">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-label">Our Services</div></div>
+    <h2 class="reveal">How We Support Communities</h2>
+    <div class="services-grid">
+      <div class="service-card reveal"><div class="service-num">01</div><h3>Disability Awareness & Inclusion Education</h3></div>
+      <div class="service-card reveal delay-1"><div class="service-num">02</div><h3>Mobility & Accessibility Support</h3></div>
+      <div class="service-card reveal delay-2"><div class="service-num">03</div><h3>Assistive Technology Awareness</h3></div>
+      <div class="service-card reveal delay-3"><div class="service-num">04</div><h3>Home Accessibility Modifications</h3></div>
+      <div class="service-card reveal"><div class="service-num">05</div><h3>Workplace Disability Inclusion Consulting</h3></div>
+      <div class="service-card reveal delay-1"><div class="service-num">06</div><h3>Caregiver Support & Education</h3></div>
+      <div class="service-card reveal delay-2"><div class="service-num">07</div><h3>Assistive Products & Accessibility Solutions</h3></div>
+      <div class="service-card reveal delay-3"><div class="service-num">08</div><h3>Strategic Partnerships & Community Engagement</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY SLIDER -->
+<section class="gallery-section">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-label">Our World</div></div>
+    <h2 class="reveal">Inclusion in Action</h2>
+    <div class="gallery-track" id="galleryTrack">
+      <div class="gallery-img"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt=""><div class="gallery-img-caption">African community solidarity</div></div>
+      <div class="gallery-img"><img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80" alt=""><div class="gallery-img-caption">Community empowerment Africa</div></div>
+      <div class="gallery-img"><img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=600&q=80" alt=""><div class="gallery-img-caption">Healthcare & disability support</div></div>
+      <div class="gallery-img"><img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=600&q=80" alt=""><div class="gallery-img-caption">Muslim women in leadership</div></div>
+      <div class="gallery-img"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" alt=""><div class="gallery-img-caption">Cross-cultural inclusion</div></div>
+      <div class="gallery-img"><img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&q=80" alt=""><div class="gallery-img-caption">Assistive technology education</div></div>
+      <div class="gallery-img"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt=""><div class="gallery-img-caption">Accessible community spaces</div></div>
+    </div>
+    <div class="gallery-nav">
+      <button class="gnav-btn" id="galleryPrev">‹</button>
+      <div class="gnav-dots" id="galleryDots"></div>
+      <button class="gnav-btn" id="galleryNext">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="section why-section">
+  <div class="why-inner">
+    <div class="reveal"><div class="section-label">Why It Matters</div></div>
+    <div class="why-quote reveal delay-1">Accessibility is not a privilege. It is a right.</div>
+    <p class="reveal delay-2" style="font-size:1.1rem;color:var(--text-mid);line-height:1.8;max-width:680px;margin:0 auto 40px;">Many individuals living with disabilities are not limited by their condition, but by inaccessible environments, limited awareness and barriers within systems and societies. InuAbility works to change this reality.</p>
+    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=860&q=80" alt="Diverse African inclusive community" class="why-img reveal delay-3">
+  </div>
+</section>
+
+<!-- BLOG / STORIES -->
+<section class="section" id="blog">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-label">Stories & Insights</div></div>
+    <h2 class="reveal">Voices for Inclusion</h2>
+    <p class="reveal delay-1" style="text-align:center;max-width:700px;margin:0 auto 50px;">Real stories, thought leadership, and reflections from the journey toward true inclusion across Africa.</p>
+    
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px;">
+      <div class="focus-card reveal" onclick="window.location.href='blog.html#post1'" style="cursor:pointer;">
+        <div class="focus-image">
+          <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80" alt="Inclusion Design">
+        </div>
+        <h3 style="padding:0;margin-bottom:12px;">What Would True Inclusion Look Like?</h3>
+        <p style="margin:0;">By Nancy Rono. Imagine communities designed from the start with lived experiences at the table. Nothing about us without us.</p>
+        <div style="margin-top:16px;"><span style="color:var(--gold-light);font-weight:600;">Read Full →</span></div>
+      </div>
+      
+      <div class="focus-card reveal delay-1" onclick="window.location.href='blog.html#post2'" style="cursor:pointer;">
+        <div class="focus-image">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" alt="Resilience Story">
+        </div>
+        <h3 style="padding:0;margin-bottom:12px;">Life Didn't End With a Brain Tumour</h3>
+        <p style="margin:0;">By Nancy Rono. A powerful story of resilience, adaptation, and living fully with assistive technology and community support.</p>
+        <div style="margin-top:16px;"><span style="color:var(--gold-light);font-weight:600;">Read Full →</span></div>
+      </div>
+    </div>
+    
+    <div style="text-align:center;margin-top:40px;">
+      <a href="blog.html" class="btn-primary">Explore All Stories</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="section-inner">
-    <h2>Let's Build an Inclusive Future Together</h2>
-    <p>Whether you're an individual, family, employer, or organisation — we'd love to hear from you.</p>
-    <div class="contact-links">
+    <div class="reveal"><div class="section-label">Get In Touch</div></div>
+    <h2 class="reveal">Let's Build an Inclusive Future Together</h2>
+    <p class="reveal delay-1">Whether you're an individual, family, employer, or organisation — we'd love to hear from you and explore how we can work together.</p>
+    <div class="contact-links reveal delay-2">
       <a href="mailto:info@inuability.com" class="contact-link contact-link-email">✉ Email Us</a>
       <a href="https://wa.me/1234567890" class="contact-link contact-link-wa">💬 WhatsApp</a>
       <a href="https://linkedin.com/company/inuability" class="contact-link contact-link-li">🔗 LinkedIn</a>
@@ -229,9 +436,72 @@ footer p{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:0.04em;}
 </footer>
 
 <script>
+// Scroll reveal observer
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Scroll header
 window.addEventListener('scroll',()=>{
   document.getElementById('mainHeader').classList.toggle('scrolled',window.scrollY>60);
 });
+
+// Hero background slideshow
+const heroSlides = document.querySelectorAll('.hero-slide');
+let hIdx=0;
+setInterval(()=>{
+  heroSlides[hIdx].classList.remove('active');
+  hIdx=(hIdx+1)%heroSlides.length;
+  heroSlides[hIdx].classList.add('active');
+},5000);
+
+// Hero carousel
+const cSlides = document.querySelectorAll('.carousel-slide');
+const cDotsWrap = document.getElementById('carouselDots');
+let cIdx=0;
+cSlides.forEach((_,i)=>{
+  const d=document.createElement('div');
+  d.className='cdot'+(i===0?' active':'');
+  d.addEventListener('click',()=>goCarousel(i));
+  cDotsWrap.appendChild(d);
+});
+function goCarousel(n){
+  cSlides[cIdx].classList.remove('active');
+  document.querySelectorAll('.cdot')[cIdx].classList.remove('active');
+  cIdx=(n+cSlides.length)%cSlides.length;
+  cSlides[cIdx].classList.add('active');
+  document.querySelectorAll('.cdot')[cIdx].classList.add('active');
+}
+setInterval(()=>goCarousel(cIdx+1),4000);
+
+// Gallery slider
+const galleryImgs = document.querySelectorAll('.gallery-img');
+const galleryTrack = document.getElementById('galleryTrack');
+const gDotsWrap = document.getElementById('galleryDots');
+const VISIBLE = ()=>window.innerWidth<600?1:window.innerWidth<900?2:3;
+let gIdx=0;
+galleryImgs.forEach((_,i)=>{
+  const d=document.createElement('div');
+  d.className='gnav-dot'+(i===0?' active':'');
+  d.addEventListener('click',()=>goGallery(i));
+  gDotsWrap.appendChild(d);
+});
+function goGallery(n){
+  const max=galleryImgs.length-VISIBLE();
+  gIdx=Math.max(0,Math.min(n,max));
+  const imgW=galleryImgs[0].offsetWidth+20;
+  galleryTrack.style.transform=`translateX(-${gIdx*imgW}px)`;
+  document.querySelectorAll('.gnav-dot').forEach((d,i)=>d.classList.toggle('active',i===gIdx));
+}
+document.getElementById('galleryPrev').addEventListener('click',()=>goGallery(gIdx-1));
+document.getElementById('galleryNext').addEventListener('click',()=>goGallery(gIdx+1));
+setInterval(()=>{
+  const max=galleryImgs.length-VISIBLE();
+  goGallery(gIdx>=max?0:gIdx+1);
+},3500);
 </script>
 </body>
 </html>
