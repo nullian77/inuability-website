@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stories & Insights | InuAbility Consultancy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/multipage.css">
+<style>
+:root{
+  --navy:#1a2744;--teal:#0f7a6b;--gold:#e8a020;--cream:#faf7f2;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.75;}
+.hero-blog{padding:140px 40px 80px;background:linear-gradient(rgba(26,39,68,0.85),rgba(15,122,107,0.75)), url('assets/black-man-wheelchair-riding-along-park-road.jpg') center/cover; color:white; text-align:center;}
+.hero-blog h1{font-family:'Playfair Display',serif;font-size:3.2rem;margin-bottom:16px;}
+.container{max-width:1100px;margin:0 auto;padding:60px 40px;}
+.blog-post{background:white;border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(26,39,68,0.1);margin-bottom:60px;}
+.blog-post-header{padding:48px 48px 0;}
+.blog-title{font-family:'Playfair Display',serif;font-size:2.35rem;line-height:1.25;color:var(--navy);}
+.blog-meta{color:#666;font-size:1.05rem;margin:16px 0 32px;}
+.blog-content{padding:0 48px 48px;font-size:1.08rem;}
+.blog-content h2{margin:40px 0 16px;color:var(--navy);font-size:1.65rem;}
+.cta-section{background:var(--navy);color:white;padding:70px 40px;text-align:center;margin-top:60px;border-radius:16px;}
+.btn{background:var(--gold);color:#1a2744;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:600;display:inline-block;}
+.back-btn{color:var(--teal);text-decoration:none;font-weight:500;}
+</style>
+<style>.bg-primary,.bg-success,[style*="background:#2"],[style*="background-color:#2"]{color:#fff!important}.bg-primary *,.bg-success *{color:#fff!important}.stories-preview,.stories-preview *{color:#222!important}</style></head>
+<body>
+
+<!-- Simple consistent nav -->
+<nav style="background:#1a2744;padding:18px 40px;color:white;position:fixed;width:100%;z-index:100;top:0;">
+  <div style="max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;">
+    <a href="index.html" style="color:white;text-decoration:none;font-weight:700;">InuAbility</a>
+    <div>
+      <a href="index.html" style="color:white;margin-right:25px;text-decoration:none;">Home</a>
+      <a href="focus-areas.html" style="color:white;margin-right:25px;text-decoration:none;">Focus Areas</a>
+      <a href="services.html" style="color:white;margin-right:25px;text-decoration:none;">Services</a>
+      <a href="blog.html" style="color:white;font-weight:600;text-decoration:none;">Stories</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero-blog">
+  <h1>Stories & Insights</h1>
+  <p style="font-size:1.25rem;max-width:700px;margin:0 auto;">Real voices. Powerful reflections. Building inclusive communities across Africa.</p>
+</div>
+
+<div class="container">
+
+  <!-- Post 1 -->
+  <article class="blog-post" id="post1">
+    <div class="blog-post-header">
+      <h2 class="blog-title">What Would True Inclusion Look Like If People with Disabilities Designed Our Communities?</h2>
+      <div class="blog-meta">By Nancy • Founder & Director • July 2025</div>
+    </div>
+    <div class="blog-content">
+      <p>Most conversations about disability begin with barriers...</p>
+      <p><strong>What would happen if people with disabilities were involved in designing our communities from the very beginning?</strong></p>
+      <h2>Designing With People, Not For People</h2>
+      <p>Too often, accessibility is treated as something added later. True inclusion begins with listening to lived experience.</p>
+      <p><em>Nothing About Us Without Us.</em></p>
+      <p>At InuAbility, we develop solutions <strong>with</strong> people — not just for them.</p>
+      <p style="font-style:italic;margin-top:40px;">— Nancy</p>
+    </div>
+  </article>
+
+  <!-- Post 2 -->
+  <article class="blog-post" id="post2">
+    <div class="blog-post-header">
+      <h2 class="blog-title">Life Didn’t End With a Brain Tumour—It Simply Changed Direction</h2>
+      <div class="blog-meta">By Nancy • Founder & Director</div>
+    </div>
+    <div class="blog-content">
+      <p>A powerful story of resilience and adaptation after a life-changing diagnosis.</p>
+      <h2>Looking Beyond the Wheelchair</h2>
+      <p>Mobility equipment represents freedom, not limitation.</p>
+      <h2>Independence Looks Different for Everyone</h2>
+      <p>The right support at the right time enables people to live fully on their own terms.</p>
+      <p style="font-style:italic;margin-top:40px;">— Nancy</p>
+    </div>
+  </article>
+
+</div>
+
+<section class="cta-section">
+  <h2 style="margin-bottom:20px;">Ready to work with InuAbility?</h2>
+  <a href="index.html#contact" class="btn">Book a Consultation</a>
+</section>
+
+<footer style="background:#0f1a30;color:#ddd;padding:50px 40px;text-align:center;font-size:0.95rem;">
+  © 2025 InuAbility Consultancy. All rights reserved.<br>
+  EMPOWERING LIVES · PROMOTING MOBILITY · BUILDING AN INCLUSIVE TOMORROW
+</footer>
+
+<script>
+function handleSubscribe(e) {
+  e.preventDefault();
+  const msg = document.getElementById('subscribe-msg-blog');
+  msg.textContent = 'Thank you for subscribing! 🎉';
+  e.target.reset();
+  setTimeout(() => msg.textContent = '', 4000);
+}
+</script>
+</body>
+</html>
