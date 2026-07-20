@@ -19,7 +19,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
 @keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 header{position:fixed;top:0;width:100%;z-index:200;background:rgba(250,247,242,0.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(26,39,68,0.08);transition:all 0.3s;}
 header.scrolled{background:rgba(250,247,242,0.98);box-shadow:0 4px 30px rgba(26,39,68,0.1);}
 .nav-inner{max-width:1200px;margin:auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;height:96px;}
@@ -61,7 +60,15 @@ h1 em{color:var(--teal);font-style:normal;}
 .section{padding:100px 0;}
 .section-inner{max-width:1200px;margin:auto;padding:0 40px;}
 h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:20px;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px;}
+.about-img{border-radius:16px;overflow:hidden;width:100%;height:400px;object-fit:cover;}
+.about-quote{border-left:3px solid var(--gold);padding-left:24px;margin:32px 0;font-size:1.05rem;color:var(--text-mid);font-style:italic;line-height:1.8;}
+.founders{display:flex;gap:24px;margin-top:40px;}
+.founder{background:white;padding:24px;border-radius:12px;border:1px solid rgba(26,39,68,0.1);}
+.founder-name{font-weight:700;color:var(--navy);font-size:1rem;}
+.founder-role{font-size:0.9rem;color:var(--text-muted);margin-top:4px;}
 .focus-section{background:var(--navy);padding:100px 0;}
+.focus-section h2{color:#222;}
 .focus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px;}
 .focus-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:36px;transition:all 0.35s;cursor:pointer;}
 .focus-card:hover{background:rgba(255,255,255,0.09);border-color:rgba(232,160,32,0.5);transform:translateY(-4px);}
@@ -84,6 +91,7 @@ footer{background:#0f1a30;padding:48px 40px;text-align:center;}
 footer p{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:0.04em;}
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr;}
   .focus-grid{grid-template-columns:1fr;}
   .services-grid{grid-template-columns:repeat(2,1fr);}
   .stats-inner{grid-template-columns:repeat(2,1fr);}
@@ -94,6 +102,7 @@ footer p{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:0.04em;}
   .stats-inner{grid-template-columns:1fr 1fr;}
   .section-inner{padding:0 20px;}
   .nav-inner{padding:0 20px;}
+  .founders{flex-direction:column;}
 }
 </style>
 </head>
@@ -127,7 +136,7 @@ footer p{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:0.04em;}
       <h1>Building <em>Inclusive</em> Communities Across Africa</h1>
       <p class="hero-desc">InuAbility Consultancy promotes mobility, independence, dignity and full participation for people living with disabilities — through education, advocacy and accessibility solutions across Africa.</p>
       <div class="hero-btns">
-        <a href="#services" class="btn-primary">Explore Our Work →</a>
+        <a href="#about" class="btn-primary">Explore Our Work →</a>
         <a href="#contact" class="btn-outline">Contact Us</a>
       </div>
     </div>
@@ -169,6 +178,22 @@ footer p{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:0.04em;}
     </div>
   </div>
 </div>
+
+<!-- ABOUT SECTION -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <h2>Who We Are</h2>
+    <div class="about-grid">
+      <div>
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="InuAbility Team" class="about-img">
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy);margin-bottom:16px;">Creating Pathways to Dignity & Independence</h3>
+        <p style="margin-bottom:16px;color:var(--text-mid);line-height:1.8;">Founded by Nancy and Phill, InuAbility was born from a shared commitment to disability inclusion, accessibility, rehabilitation awareness, and independent living support.</p>
+        <div class="about-quote">Drawing on extensive experience in disability support, aged care, community services and transitional care — InuAbility bridges the gap between individuals, families, employers and communities, creating pathways to true inclusion across Africa.</div>
+        <h4 style="font-weight:700;color:var(--navy);margin-top:32px;margin-bottom:16px;">Our Founders</h4>
+        <div class="founders">
+          <div class="founder">\n            <div class="founder-name">Nancy Rono</div>\n            <div class="founder-role">Founder & Director</div>\n            <p style=\"font-size:0.9rem;margin-top:8px;color:var(--text-mid);\">Leading disability inclusion strategy and community engagement.</p>\n          </div>\n          <div class="founder">\n            <div class="founder-name">Phill (PA)</div>\n            <div class="founder-role">Co-Founder & Business Development Lead</div>\n            <p style=\"font-size:0.9rem;margin-top:8px;color:var(--text-mid);\">Driving partnerships and organizational growth.</p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>
 
 <section class="section focus-section" id="services">
   <div class="section-inner">
