@@ -3,104 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stories & Insights | InuAbility Consultancy</title>
+<title>Stories & Insights | InuAbility</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/multipage.css">
 <style>
-:root{
-  --navy:#1a2744;--teal:#0f7a6b;--gold:#e8a020;--cream:#faf7f2;
-}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.75;}
-.hero-blog{padding:140px 40px 80px;background:linear-gradient(rgba(26,39,68,0.85),rgba(15,122,107,0.75)), url('assets/black-man-wheelchair-riding-along-park-road.jpg') center/cover; color:white; text-align:center;}
-.hero-blog h1{font-family:'Playfair Display',serif;font-size:3.2rem;margin-bottom:16px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#faf7f2;color:#1a1a1a;line-height:1.8;}
+header{position:fixed;top:0;width:100%;z-index:100;background:#1a2744;padding:18px 40px;color:white;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+header a{color:white;text-decoration:none;font-weight:600;margin-right:30px;transition:color 0.3s;}
+header a:hover{color:#0f7a6b;}
+.hero{padding:140px 40px 80px;background:linear-gradient(rgba(26,39,68,0.85),rgba(15,122,107,0.75)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1600&q=80') center/cover;color:white;text-align:center;}
+.hero h1{font-family:'Playfair Display',serif;font-size:3.2rem;margin-bottom:16px;}
 .container{max-width:1100px;margin:0 auto;padding:60px 40px;}
 .blog-post{background:white;border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(26,39,68,0.1);margin-bottom:60px;}
-.blog-post-header{padding:48px 48px 0;}
-.blog-title{font-family:'Playfair Display',serif;font-size:2.35rem;line-height:1.25;color:var(--navy);}
-.blog-meta{color:#666;font-size:1.05rem;margin:16px 0 32px;}
-.blog-content{padding:0 48px 48px;font-size:1.08rem;}
-.blog-content h2{margin:40px 0 16px;color:var(--navy);font-size:1.65rem;}
-.cta-section{background:var(--navy);color:white;padding:70px 40px;text-align:center;margin-top:60px;border-radius:16px;}
-.btn{background:var(--gold);color:#1a2744;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:600;display:inline-block;}
-.back-btn{color:var(--teal);text-decoration:none;font-weight:500;}
+.blog-post-header{padding:48px;}
+.blog-title{font-family:'Playfair Display',serif;font-size:2.2rem;line-height:1.25;color:#1a2744;margin-bottom:16px;}
+.blog-meta{color:#666;font-size:0.95rem;margin-bottom:32px;}
+.blog-content{padding:0 48px 48px;font-size:1.05rem;line-height:1.8;}
+.blog-content h2{margin:32px 0 16px;color:#1a2744;font-size:1.5rem;}
+.blog-content p{margin-bottom:16px;}
+.cta{background:#1a2744;color:white;padding:70px 40px;text-align:center;margin:60px 0;border-radius:16px;}
+.cta h2{font-family:'Playfair Display',serif;color:white;margin-bottom:20px;}
+.btn{background:#e8a020;color:#1a2744;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:600;display:inline-block;transition:all 0.3s;}
+.btn:hover{background:#f5c055;transform:translateY(-2px);}
+footer{background:#0f1a30;color:#ddd;padding:50px 40px;text-align:center;font-size:0.95rem;}
+@media(max-width:600px){
+  .blog-post-header,.blog-content{padding:24px;}
+  .container{padding:40px 20px;}
+}
 </style>
-<style>.bg-primary,.bg-success,[style*="background:#2"],[style*="background-color:#2"]{color:#fff!important}.bg-primary *,.bg-success *{color:#fff!important}.stories-preview,.stories-preview *{color:#222!important}</style></head>
+</head>
 <body>
 
-<!-- Simple consistent nav -->
-<nav style="background:#1a2744;padding:18px 40px;color:white;position:fixed;width:100%;z-index:100;top:0;">
+<header>
   <div style="max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;">
-    <a href="index.html" style="color:white;text-decoration:none;font-weight:700;">InuAbility</a>
-    <div>
-      <a href="index.html" style="color:white;margin-right:25px;text-decoration:none;">Home</a>
-      <a href="focus-areas.html" style="color:white;margin-right:25px;text-decoration:none;">Focus Areas</a>
-      <a href="services.html" style="color:white;margin-right:25px;text-decoration:none;">Services</a>
-      <a href="blog.html" style="color:white;font-weight:600;text-decoration:none;">Stories</a>
-    </div>
+    <a href="index.html" style="margin-right:auto;font-size:1.2rem;font-weight:700;">InuAbility</a>
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="blog.html" style="color:#e8a020;">Stories</a>
   </div>
-</nav>
+</header>
 
-<div class="hero-blog">
+<div class="hero">
   <h1>Stories & Insights</h1>
-  <p style="font-size:1.25rem;max-width:700px;margin:0 auto;">Real voices. Powerful reflections. Building inclusive communities across Africa.</p>
+  <p>Real voices. Building inclusive communities across Africa.</p>
 </div>
 
 <div class="container">
 
-  <!-- Post 1 -->
   <article class="blog-post" id="post1">
     <div class="blog-post-header">
       <h2 class="blog-title">What Would True Inclusion Look Like If People with Disabilities Designed Our Communities?</h2>
-      <div class="blog-meta">By Nancy • Founder & Director • July 2025</div>
+      <div class="blog-meta">By Nancy Rono • Founder & Director • July 2025</div>
     </div>
     <div class="blog-content">
-      <p>Most conversations about disability begin with barriers...</p>
-      <p><strong>What would happen if people with disabilities were involved in designing our communities from the very beginning?</strong></p>
+      <p>Most conversations about disability begin with barriers. We talk about what people with disabilities cannot do. But what if we asked: what would communities look like if people with disabilities were at the table from day one?</p>
       <h2>Designing With People, Not For People</h2>
-      <p>Too often, accessibility is treated as something added later. True inclusion begins with listening to lived experience.</p>
-      <p><em>Nothing About Us Without Us.</em></p>
-      <p>At InuAbility, we develop solutions <strong>with</strong> people — not just for them.</p>
-      <p style="font-style:italic;margin-top:40px;">— Nancy</p>
+      <p>Too often, accessibility is treated as something added later. True inclusion begins with listening to lived experience. <em>"Nothing About Us Without Us"</em> isn't just a slogan — it's fundamental to creating real change.</p>
+      <p>At InuAbility, we develop solutions <strong>with</strong> people — not just for them. When someone with a disability is in the room from day one, everything changes.</p>
     </div>
   </article>
 
-  <!-- Post 2 -->
   <article class="blog-post" id="post2">
     <div class="blog-post-header">
-      <h2 class="blog-title">Life Didn’t End With a Brain Tumour—It Simply Changed Direction</h2>
-      <div class="blog-meta">By Nancy • Founder & Director</div>
+      <h2 class="blog-title">Life Didn't End With a Brain Tumour—It Simply Changed Direction</h2>
+      <div class="blog-meta">By Nancy Rono • Founder & Director</div>
     </div>
     <div class="blog-content">
-      <p>A powerful story of resilience and adaptation after a life-changing diagnosis.</p>
+      <p>A diagnosis can feel like an ending. But sometimes, it's just a plot twist in your story.</p>
       <h2>Looking Beyond the Wheelchair</h2>
-      <p>Mobility equipment represents freedom, not limitation.</p>
+      <p>Mobility equipment represents freedom, not limitation. A wheelchair is a key to possibility. When people stop seeing adaptive tools as symbols of loss and start seeing them as tools of independence, everything changes.</p>
       <h2>Independence Looks Different for Everyone</h2>
-      <p>The right support at the right time enables people to live fully on their own terms.</p>
-      <p style="font-style:italic;margin-top:40px;">— Nancy</p>
+      <p>Independence doesn't mean doing everything alone. It means having agency. It means making choices. It means having the support and access you need to live on your own terms.</p>
     </div>
   </article>
 
 </div>
 
-<section class="cta-section">
-  <h2 style="margin-bottom:20px;">Ready to work with InuAbility?</h2>
+<section class="cta">
+  <h2>Ready to work with InuAbility?</h2>
   <a href="index.html#contact" class="btn">Book a Consultation</a>
 </section>
 
-<footer style="background:#0f1a30;color:#ddd;padding:50px 40px;text-align:center;font-size:0.95rem;">
+<footer>
   © 2025 InuAbility Consultancy. All rights reserved.<br>
   EMPOWERING LIVES · PROMOTING MOBILITY · BUILDING AN INCLUSIVE TOMORROW
 </footer>
 
-<script>
-function handleSubscribe(e) {
-  e.preventDefault();
-  const msg = document.getElementById('subscribe-msg-blog');
-  msg.textContent = 'Thank you for subscribing! 🎉';
-  e.target.reset();
-  setTimeout(() => msg.textContent = '', 4000);
-}
-</script>
 </body>
 </html>

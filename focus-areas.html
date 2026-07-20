@@ -1,20 +1,84 @@
-<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
-<title>Focus Areas | InuAbility</title><style>
-:root{--navy:#1a2744;--teal:#0f7a6b;--gold:#e8a020;--cream:#faf7f2}
-body{font-family:Arial,sans-serif;background:var(--cream);margin:0;color:#222;line-height:1.7}
-.hero{padding:110px 8%;background:linear-gradient(rgba(26,39,68,.88),rgba(15,122,107,.8));color:#fff}
-.container{max-width:1200px;margin:auto;padding:60px 8%}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-.card{background:#fff;padding:24px;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,.08)}
-.cta{background:var(--navy);color:#fff;text-align:center;padding:60px 8%}
-.btn{display:inline-block;background:var(--gold);padding:12px 24px;border-radius:30px;color:#fff;text-decoration:none}
-</style><style>.bg-primary,.bg-success,[style*="background:#2"],[style*="background-color:#2"]{color:#fff!important}.bg-primary *,.bg-success *{color:#fff!important}.stories-preview,.stories-preview *{color:#222!important}</style></head><body>
-<section class='hero'><h1>Focus Areas</h1><p>Key areas where InuAbility creates impact.</p></section>
-<section class='container'><h2>Overview</h2>
-<div class='grid'>
-<div class='card'><h3>Assessment</h3><p>Professional accessibility and inclusion assessments.</p></div>
-<div class='card'><h3>Training</h3><p>Workshops, awareness programs and capacity building.</p></div>
-<div class='card'><h3>Implementation</h3><p>Practical support for inclusive environments.</p></div>
-</div></section>
-<section class='cta'><h2>Ready to work with InuAbility?</h2><a class='btn' href='contact.html'>Book a Consultation</a></section>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Areas | InuAbility</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#faf7f2;color:#1a1a1a;line-height:1.7;}
+header{position:fixed;top:0;width:100%;z-index:100;background:#1a2744;padding:18px 40px;color:white;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+header a{color:white;text-decoration:none;font-weight:600;margin-right:30px;transition:color 0.3s;}
+header a:hover{color:#0f7a6b;}
+.hero{padding:110px 40px 80px;background:linear-gradient(rgba(26,39,68,.88),rgba(15,122,107,.8)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1600&q=80') center/cover;color:white;text-align:center;}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;margin-bottom:16px;}
+.container{max-width:1200px;margin:auto;padding:60px 40px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;}
+.focus-card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(26,39,68,0.1);transition:all 0.3s;}
+.focus-card:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(15,122,107,0.2);}
+.focus-img{width:100%;height:200px;object-fit:cover;}
+.focus-content{padding:32px;}
+.focus-content h3{font-size:1.2rem;color:#1a2744;margin-bottom:12px;}
+.focus-content p{color:#666;line-height:1.8;}
+footer{background:#0f1a30;color:#ddd;padding:50px 40px;text-align:center;font-size:0.95rem;}
+</style>
+</head>
+<body>
+
+<header>
+  <div style="max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;">
+    <a href="index.html" style="margin-right:auto;font-size:1.2rem;font-weight:700;">InuAbility</a>
+    <a href="index.html">Home</a>
+    <a href="index.html#services" style="color:#e8a020;">Focus Areas</a>
+    <a href="blog.html">Stories</a>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Our Focus Areas</h1>
+  <p>Where We Create Impact Across Africa</p>
+</div>
+
+<div class="container">
+  <div class="grid">
+    <div class="focus-card">
+      <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=600&q=80" alt="Mobility" class="focus-img">
+      <div class="focus-content">
+        <h3>Mobility & Accessibility Awareness</h3>
+        <p>Promoting understanding around mobility support, accessibility and inclusion in everyday environments and communities.</p>
+      </div>
+    </div>
+
+    <div class="focus-card">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Technology" class="focus-img">
+      <div class="focus-content">
+        <h3>Assistive Technology Support</h3>
+        <p>Supporting conversations around mobility aids, adaptive equipment, smart home solutions and accessibility pathways.</p>
+      </div>
+    </div>
+
+    <div class="focus-card">
+      <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=600&q=80" alt="Education" class="focus-img">
+      <div class="focus-content">
+        <h3>Community & Caregiver Education</h3>
+        <p>Comprehensive training programs and meaningful community engagement across Africa.</p>
+      </div>
+    </div>
+
+    <div class="focus-card">
+      <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" alt="Advocacy" class="focus-img">
+      <div class="focus-content">
+        <h3>Disability Inclusion Advocacy</h3>
+        <p>Promoting full participation and genuinely inclusive communities through policy engagement and awareness campaigns.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 InuAbility Consultancy. All rights reserved.
+</footer>
+
+</body>
+</html>
